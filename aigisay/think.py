@@ -16,11 +16,31 @@ class AigisBrain():
         self.history.extend(messages)
         self._truncate_history()
 
-    def chat(self, text):
+    def append_user_message(self, text):
+        """
+        Adds a user message to the end of the history.
+
+        :param str text: message text to append
+        """
         self.history.append({
             "role": "user",
             "content": text
         })
+
+    def chat(self):
+        """
+        Trigger the bot to actually say something. This heavily relies on the assumption that
+        something has been added to the message history at some point.
+
+        :returns: chatbot result
+        :rtype: ollama.ChatMessage
+        """
+        if not self.history:
+            # This is being called with absolutely no history whatsoever. Just default to an introduction.
+            self.history.append({
+                "role": "user",
+                "content": "Introduce yourself."
+            })
         response = chat(
             model="aigiscord",
             messages=self.history
