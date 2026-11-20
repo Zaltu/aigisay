@@ -1,0 +1,9 @@
+"""
+Define names to export to AIGIS
+"""
+from aigisay.think import AigisBrain
+from aigisay.speak import speak
+
+AIGISBOT = AigisBrain()
+
+SKILLS = ["AIGISBOT", "speak"]

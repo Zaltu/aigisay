@@ -1,0 +1,12 @@
+# Ignore compiled python
+*.pyc
+__pycache__/
+
+# Ignore any lingering test audios
+*.wav
+
+# Ignore lingering modefiles
+modelfiles/
+
+# Ignore voice cloning resources
+resources/
