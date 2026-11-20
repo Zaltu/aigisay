@@ -6,7 +6,7 @@ DEFAULT_MODEL = "aigiscord"
 class AigisBrain():
     def __init__(self, model=DEFAULT_MODEL, history=[]):
         self.model = model
-        self.history = self.history
+        self.history = history
 
     def import_history(self, messages):
         """
